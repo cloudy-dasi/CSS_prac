@@ -1,0 +1,163 @@
+.frame{
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	background: black;
+	border-radius: 3px;
+	top: calc(50% - 200px);
+	left: calc(50% - 200px);
+	filter: contrast(25);
+}
+
+.center{
+	position: absolute;
+	top: calc(50% - 45px);
+	left: calc(50% - 45px);
+}
+
+.ball{
+	position: relative;
+	width: 90px;
+	height: 90px;
+	background: white;
+	border-radius: 200px;
+	filter: blur(15px);
+}
+
+/*add size at both static and moved one for placing at the same position*/
+
+[class^='blubb-']{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: calc(50% - 25px);
+	left: calc(50% - 25px);
+    transform: rotate(var(--randomRotate));
+
+    &:after{
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 50px;
+        border-radius: 200px;
+        background: white;
+        transform-origin: var(--originX) var(--originY);
+        animation: rotate var(--blubbDur) ease-in var(--blubbDelay) infinite;
+        filter: blur(5px);
+    }
+}
+
+[class^='sparkle-']{
+	position: absolute;
+	top: 38px;
+	left: 38px;
+    width: var(--widthSparkle);
+    height: var(--heightSparkle);
+    transform: rotate(var(--randomRotate));
+
+    &:after{
+        position:absolute;
+        content: '';
+        background: white;
+        width: var(--widthSparkle);
+        height: var(--heightSparkle);
+        border-radius: 100px;
+        transform-origin: var(--originX) var(--originY);
+        animation: rotate var(--sparkleDur) ease-in-out var(--sparkleDelay) infinite;
+        filter: blur(3px);
+    }
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	to {
+		transform: rotate(360deg) translate3d(0, 0, 0);
+	}
+}
+
+/* origin:
+.frame{
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	background: black;
+	border-radius: 3px;
+	top: calc(50% - 200px);
+	left: calc(50% - 200px);
+	filter: contrast(25); => increase the intensity of the white color of the ball; stark smoothness and blurriness
+}
+.center{
+	position: absolute;
+	top: calc(50% - 45px);
+	left: calc(50% - 45px);
+}
+
+.ball{
+	position: relative; => take whole space of center and the center got the same size
+	width: 90px;
+	height: 90px;
+	background: white;
+	border-radius: 200px;
+	filter: blur(15px);
+}
+
+@for $i from 1 through 8 {
+	.blubb-#{$i}{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		transform: rotate( (random(300)) + deg);
+		top: calc(50% - 25px);
+		left: calc(50% - 25px);
+		
+		&:after{
+			position: absolute;
+			content: '';
+			width: 50px;
+			height: 50px;
+			border-radius: 200px;
+			background: white;
+			transform-origin: (40 - $i * 3) + px (40 - $i * 3) + px;
+			animation-name: rotate;
+			animation-duration: (2.5 + $i/5) + s;
+			animation-iteration-count: infinite;
+			animation-delay: ($i/5) + s;
+			animation-timing-function: ease-in;
+			filter: blur(5px);
+		}
+	}
+}
+@for $i from 1 through 10 {
+	.sparkle-#{$i}{
+		position: absolute;
+		width: (7 + $i) + px;
+		height: (7 + $i) + px;
+		top: 38px;
+		left: 38px;
+		transform: rotate( (random(300)) + deg);
+		
+		&:after{
+			position: absolute;
+			content: '';
+			width: (7 + $i) + px;
+			height: (7 + $i) + px;
+			background: white;
+			border-radius: 100px;
+			transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
+			animation-name: rotate;
+			animation-duration: (3.5 + $i/5) + s;
+			animation-iteration-count: infinite;
+			animation-delay: ($i/5) + s;
+			animation-timing-function: ease-in-out;
+			filter: blur(3px);
+		}
+	}
+}
+
+@keyframes rotate {
+	0% {transform: rotate(0deg) translate3d(0,0,0)}
+	100% {transform: rotate(360deg) translate3d(0,0,0)}
+}
+*/

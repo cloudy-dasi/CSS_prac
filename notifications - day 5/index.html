@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notifications</title>
+        <link rel="stylesheet" href="style.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    </head>
+    <body>
+        <div class = 'frame'>
+            <div class = 'card' id='noti-form'>
+                <div class = 'header'>
+                    <div class = 'navigation'>
+                        <div class = 'menu-icon' id='menu-icon'>
+                            <div class='line-1'></div>
+                            <div class='circle'></div>
+                            <div class='line-2'></div>
+                        </div>
+                        <p class='noti'>Notifications</p>
+                        <div class='search-icon'>
+                            <i class='fa fa-search' id='search'></i>
+                        </div>
+                    </div>
+                </div>
+                <form action='' id='search-form'>
+                    <input type='text' name='' placeholder='Search ...' id='search-box'>
+                    <label for='search-box'></label>
+                </form>
+                <div class = 'content'>
+                    <svg viewBox='0 0 300 240'>
+                        <path class='line' d='M25 0 L25 25'></path>
+                        <path class='line' d='M25 40 L25 105'></path>
+                        <path class='line' d='M25 120 L25 185'></path>
+                        <path class='line' d='M25 200 L25 240'></path>
+                    </svg>
+                    <div class='bullet-inform'>
+                        <div class='circle-1'>
+                        <div class='tooltip'>
+                            <p class='time'>9:24 AM</p>
+                            <p class='inform'><span>John Walker</span> posted a photo on your wall.</p>
+                        </div>
+                    </div>
+                        <div class='circle-2'>
+                        <div class='tooltip'>
+                            <p class='time'>8:19 AM</p>
+                            <p class='inform'><span>Alex Parker</span>  commented your last post.</p>
+                        </div>
+                    </div>
+                        <div class='circle-3'>
+                        <div class='tooltip'>
+                            <p class='time'>Yesterday</p>
+                            <p class='inform'><span>Luke Wayne</span> added you as friend.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class='toggle-side'>
+                <div class='nav-side'>
+                    <a class='dashboard'>Dashboard</a>
+                    <a class='profile'>Profile</a>
+                    <a class='notifications' href='#noti-form'>Notifications</a>
+                    <a class='messages'>Messages</a>
+                    <a class='settings'>Settings</a>
+                </div>
+            </div>
+        </div>
+        <script src="toggle.js"></script>
+    </body>
+</html>

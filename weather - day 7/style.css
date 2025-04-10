@@ -1,0 +1,308 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+.frame{
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #1A2238;
+	border-radius: 3px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 14px;
+	color: #383838;
+}
+.scenerio{
+	position: relative;
+	height: 80%;
+	overflow: hidden;
+	background: #1A2238;
+	z-index: 5;
+	.moon{
+		position: absolute;
+		top: 15%;
+		left: 15%;
+		z-index: 1;
+		animation-name: move-moon;
+		animation-duration: 1s;
+	}
+	.surface{
+		position: relative;
+		width: 70px;
+		height: 70px;
+		background: #F6EDBD;
+		border-radius: 50%;
+		filter: drop-shadow(0px 0px 5px #FCFFC1);
+		overflow: hidden;
+		[class^='center-']{
+			position: absolute;
+			background: #ECE1A8;
+			border-radius: 200px;
+			width: var(--poleCenterWidth);
+			height: var(--poleCenterHeight);
+		}
+		.side-1{
+			position: absolute;
+			width: 11px;
+			height: 11px;
+			border-radius: 200px;
+			background: #ECE1A8;
+			top: 10%;
+			left: 10%;
+		}
+		.side-2{
+			position: absolute;
+			width: 11px;
+			height: 11px;
+			border-radius: 200px;
+			background: #ECE1A8;
+			top: 70%;
+			left: 5%;
+		}
+		.side-3{
+			position: absolute;
+			width: 11px;
+			height: 11px;
+			border-radius: 200px;
+			background: #ECE1A8;
+			top: 70%;
+			left: 80%;
+		}
+	}
+	.behind{
+		position: absolute;
+		width: 300px;
+		height: 230px;
+		border-radius: 100%;
+		background: #26314F;
+		z-index: 3;
+	}
+	.mountain-1{
+		bottom: -100px;
+		left: -50px;
+	}
+	.mountain-2{
+		bottom: -100px;
+		right: -50px;
+	}
+	.front{
+		position: absolute;
+		width: 300px;
+		height: 230px;
+		border-radius: 100%;
+		background: #303C5D;
+		z-index: 4;
+	}
+	.mountain-3{
+		left: -100px;
+		bottom: -160px;
+	}
+	.mountain-4{
+		left: calc(50% - 130px);
+		bottom: -120px;
+	}
+	.mountain-5{
+		right: -100px;
+		bottom: -160px;
+	}
+	.stars{
+		position: absolute;
+		height: 100%;
+		z-index: 0;
+		[class^='star-']{
+			position: absolute;
+			height: 1px;
+			width: 1px;
+			border-radius: 100%;
+			filter: drop-shadow(1px 1px 2px white);
+			background: white;
+			transform: translate3d(var(--axisX),0,0);
+			transform-origin: var(--left) var(--top);
+			animation-name: rotateStar;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+.ground{
+	position: absolute;
+	z-index: 6;
+	
+	[class^='heavy-rain-']{
+		position: absolute;
+		border-radius: 100%;
+		top: -350px;
+		left: var(--heavyLeft);
+		width: 10px;
+		height: 10px;
+		background: #789DBC;
+		border-radius: 100%;
+		filter: saturate(2);
+		animation-name: drop;
+		animation-duration: var(--heavyDur);
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-out;
+		animation-delay: var(--heavyDelay);
+		animation-fill-mode: both;
+		&:after{
+			position: absolute;
+			width: 10px;
+			height: 15px;
+			content: '';
+			clip-path: polygon(70% 0%, 0% 100%, 100% 100%);
+			background: #789DBC;
+			top: -100%;
+			opacity: 1;
+			animation-name: drop-after;
+			animation-duration: var(--heavyDur);
+			animation-timing-function: ease-out;
+			animation-iteration-count: infinite;
+			animation-delay: var(--heavyDelay);
+			animation-fill-mode: both;
+		}
+	}
+	[class^='light-rain-']{
+		position: absolute;
+		border-radius: 100%;
+		top: -400px;
+		left: var(--lightLeft);
+		width: 8px;
+		height: 8px;
+		background: #81BFDA;
+		border-radius: 100%;
+		filter: saturate(1);
+		animation-name: light-drop;
+		animation-duration: .5s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-out;
+		animation-delay: var(--lightDelay);
+		animation-fill-mode: both;
+		&:after{
+			position: absolute;
+			width: 8px;
+			height: 13px;
+			content: '';
+			clip-path: polygon(70% 0%, 0% 100%, 100% 100%);
+			background: #81BFDA;
+			top: -100%;
+			opacity: .7;
+			animation-name: light-drop-after;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-delay: var(--lightDelay);
+			animation-fill-mode: both;
+		}
+	}
+	[class^='small-rain-']{
+		position: absolute;
+		border-radius: 100%;
+		top: -400px;
+		left: var(--smallLeft);
+		width: 5px;
+		height: 5px;
+		background: #81BFDA;
+		border-radius: 100%;
+		filter: saturate(1);
+		animation-name: small-drop;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-delay: var(--smallDelay);
+		animation-fill-mode: both;
+		z-index: 3;
+		&:after{
+			position: absolute;
+			width: 5px;
+			height: 8px;
+			content: '';
+			clip-path: polygon(70% 0%, 0% 100%, 100% 100%);
+			background: #81BFDA;
+			top: -100%;
+			opacity: .7;
+			animation-name: small-drop-after;
+			animation-duration: 2s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-delay: var(--smallDelay);
+			animation-fill-mode: both;
+		}
+	}
+}
+.information{
+	position: relative;
+	height: 20%;
+	background: white;
+	display: flex;
+	align-items: center;
+	z-index: 7;
+	.celcius{
+		font-size: 45px;
+		margin-left: 20px;
+	}
+	.weather-info{
+		margin-left: 10px;
+		line-height: 5px;
+	}
+	.days{
+		margin-left: 75px;
+		text-align: right;
+		.cel-tue{margin-bottom: 5px}
+		span{margin-right: 10px}
+		.cel{font-weight: 400}
+	}
+}
+
+@keyframes drop {
+	80% {width: 10px; opacity: 1}
+	100% {
+		transform: translate(-50px, 350px);
+		opacity: 0.5;
+		width: 15px;
+	}
+}
+@keyframes drop-after{
+	80% {width: 10px; height: 15px; opacity: 1; top: -100%;}
+	100% {width: 15px; height: 5px; opacity: 0.5; top: -40%; transform: rotate(4deg)}
+}
+
+@keyframes light-drop {
+	80% {width: 8px; opacity: .7}
+	100% {
+		transform: translate(-50px, 400px);
+		opacity: 0.2;
+		width: 13px;
+	}
+}
+@keyframes light-drop-after{
+	80% {width: 8px; height: 13px; opacity: .7; top: -100%;}
+	100% {width: 13px; height: 3px; opacity: 0.2; top: -50%;}
+}
+
+@keyframes small-drop {
+	80% {width: 5px; opacity: .5}
+	100% {
+		transform: translate(-30px, 430px);
+		opacity: 0.2;
+		width: 8px;
+	}
+}
+@keyframes small-drop-after{
+	80% {width: 5px; height: 10px; opacity: .7; top: -100%;}
+	100% {width: 8px; height: 1px; opacity: 0.2; top: -50%;}
+}
+
+@keyframes move-moon{
+	0% {top: 100%}
+	100% {top: 15%}
+}
+
+@keyframes rotateStar {
+	0% {transform: rotate(-30deg)}
+	100% {transform: rotate(360deg)}
+}
+

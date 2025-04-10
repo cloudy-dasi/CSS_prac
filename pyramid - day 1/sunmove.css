@@ -1,0 +1,108 @@
+
+.frame {
+  position: absolute; /*other elements do not follow the flow of the web*/
+  width: 400px;
+  height: 400px;
+  background-color: #181C14;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  overflow: hidden /*usually used within position absolute*/
+}
+
+.circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #7BD3EA;
+  clip-path: circle(100px at 50% 50%);
+  top: 100px;
+  left: 100px;
+  overflow: hidden;
+}
+
+.pyramid {
+  position: relative; /*for shadow-below*/
+  width: 110px;
+  height: 67px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: #FCFAEE;
+  top: 67px;
+  left: 45px;
+  animation-name: shadow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.shadow-side{
+  position: absolute;
+  width: 110px;
+  height: 67px;
+  clip-path: polygon(50% 0%, 66% 100%, 100% 100%);
+  background-color: #FCFAEE;
+  top: 67px;
+  left: 45px;
+  animation-name: shadow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(.5, .2, .5, .8);
+}
+@keyframes shadow {
+  30% {background-color: #FCFAEE}
+  70% {background-color: #D8D8D8}
+  100% {background-color: #B4B4B3}
+}
+
+.shadow-below{
+	position: relative;
+	top: 67px;
+	width: 200px;
+  height: 67px;
+	left: 0px;
+	clip-path: polygon(45px 0%, 155px 0%, 100% 10%);
+	background-color: rgba(0, 0, 0, 0.2);
+	animation-name: shadow-below;
+	animation-duration: 5s;
+	animation-timing-function: cubic-bezier(.5, .2, .5, .8);
+	animation-iteration-count: infinite;
+	z-index: 3;
+}
+@keyframes shadow-below {
+	30% {
+		clip-path: polygon(45px 0%, 155px 0%, 100% 50%);
+	}
+	70% {clip-path: polygon(45px 0%, 155px 0%, 60% 30%)}
+	100% {clip-path: polygon(45px 0%, 155px 0%, 0% 10%)}
+}
+
+.sand {
+	position: absolute;
+	width: 200px;
+	height: 67px;
+	background-color: #FCF596;
+	z-index: 1;
+}
+
+.sun {
+  position: absolute; /* Ensure it’s outside the normal flow */
+  width: 30px;
+  height: 30px;
+  clip-path: circle(15px at 50% 50%);
+  background-color: #FFE31A;
+  top: 20px;
+  left: 50%;
+  transform-origin: 0px 130px;
+  transform: rotate(-100deg);
+  animation: sun-move 5s infinite cubic-bezier(.5, .2, .5, .8);
+  z-index: 0;
+}
+
+@keyframes sun-move {
+  30%{transform: rotate(-28deg)}
+	70% {transform: rotate(10deg)}
+	100% {transform: rotate(70deg)}
+}
+

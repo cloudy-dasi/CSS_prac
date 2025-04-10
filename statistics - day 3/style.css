@@ -1,0 +1,272 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+
+:root{
+    --red: #FF8A8A;
+    --blue: #80C4E9;
+    --graybold: #758694;
+    --graylight: #EEEEEE;
+    --fontcontent: 9px;
+    --fontprimary: 11px;
+}
+
+.frame {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	background-color: #41B3A2;
+	top: calc(50% - 200px);
+	left: calc(50% - 200px);
+	border-radius: 3px;
+	font-family: Open Sans;
+	font-size: 11px;
+	overflow: hidden;
+}
+
+.report {
+	position: absolute;
+	width: 260px;
+	height: 200px;
+	top: calc(50% - 100px);
+	left: calc(50% - 130px);
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.30);
+	overflow: hidden;
+}
+
+.header{
+		position: relative;
+		background-color: #FFBF61;
+		color: white;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		padding-left: 15px;
+	
+	.big {
+		font-size: 14px;
+		font-weight: 600;
+	}
+	.head{padding-right: 70px;}
+	.date {padding-right: 80px;}
+}
+
+.content {
+	position: relative;
+	background-color: white;
+	
+	.parameters{
+		position: relative;
+		text-align: right;
+		height: calc((200px - 50px)/4);
+		font-size: var(--fontcontent);
+		
+		.pill {
+			position: relative;
+			top: 35%;
+			right: 10px;
+		}
+		.red {
+			margin-right: 15%;
+		}
+		span:before {
+			width: 11px;
+			height: 3px;
+			position: relative;
+			border-radius: 3px;
+			content: '';
+			display: inline-block;
+			top: -5%;
+			right: 2%;
+		}
+		.red:before {
+			background-color: #FF8A8A;
+		}
+		.blue:before{
+			background-color: #80C4E9;
+		}
+	}
+	
+	.statistics{
+		position: relative;
+		width: 260px;
+		height: calc((200px - 50px)/2);
+		
+		.background{
+			position: relative;
+			display: block;
+			
+			.line-1{
+				position: relative;
+				height: 1px;
+				width: 240px;
+				background-color: #EEEEEE;
+				left: 10px;
+			}
+			.line-2{
+				position: relative;
+				height: 1px;
+				width: 240px;
+				background-color: #EEEEEE;
+				left: 10px;
+				top: 37px;
+			}
+			.line-3{
+				position: relative;
+				height: 1px;
+				width: 240px;
+				background-color: #EEEEEE;
+				left: 10px;
+				top: 74px;
+			}
+		}
+		.data{
+			svg{
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				overflow: visible;
+			}
+			.line{
+				fill: none;
+				stroke-width: 2px;
+				stroke-linecap: round;
+				stroke-dasharray: 300;
+				animation-name: appear-stroke;
+				animation-duration: 500ms;
+				animation-timing-function: linear;
+				animation-fill-mode: forwards;
+			}
+			/*WHEN DO NOT USE stroke-dasharray and stroke-dashoffset
+				.redd{ 
+					animation-name: appear-stroke-red;
+					animation-duration: 500ms;
+					animation-timing-function: cubic-bezier(.5, .2, .5, .8);
+					animation-fill-mode: forwards;
+				}
+				.bluee{
+					animation-name: appear-stroke-blue;
+					animation-duration: 500ms;
+					animation-timing-function: cubic-bezier(.5, .2, .5, .8);
+					animation-fill-mode: forwards;
+				}*/
+			*/
+			
+			.data-red{
+				visibility: visible;
+				stroke: var(--red);
+			}
+			.data-blue{
+				stroke: var(--blue);
+			}
+			
+			.tooltip {
+				position: absolute;
+				display: block;
+				font-weight: 700;
+				text-align: center;
+				color: white;
+				padding: 5px 2px;
+				border-radius: 2px;
+				opacity: 1;
+				bottom: 8px;
+				left: -7px;
+				font-size: 9px;
+				transform: translate3d(0px, 0px, 0px);
+				opacity: 0;
+				transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+				z-index: 1;
+			}
+			.tooltip:after{/*a square underneath - to form a tail*/
+				content:'';
+				position: absolute;
+				width: 6px;
+				height: 6px;
+				top: 17px;
+				left: calc(50% - 3px);
+				transform: rotate(45deg);
+			}
+			.data-red .tooltip:after{
+				background-color: var(--red);
+			}
+			.data-blue .tooltip:after{
+				background-color: var(--blue);
+			}
+			.data-red .tooltip{
+				background-color: var(--red);
+			}
+			.data-blue .tooltip{
+				background-color: var(--blue);
+			}
+			[class^='point-']:hover {
+				.tooltip {
+					transform: translate(0px, -3px, 0px);
+					opacity: 1;
+				}
+			}
+			[class^='point-']{
+				position: absolute;
+				width: 6px;
+				height: 6px;
+				border-radius: 3px;
+				z-index: 10;
+				cursor: pointer;
+			}
+			.data-red{
+				[class^='point-']{
+					background-color: var(--red);
+				}
+				.point-1{left: 9px; top: 37px;}
+				.point-2{left: 47px; top: 6px;}
+				.point-3{left: 87px; top: 15px;}
+				.point-4{left: 127px; top: 6px;}
+				.point-5{left: 167px; top: 33px;}
+				.point-6{left: 207px; top: 37px;}
+				.point-7{left: 247px; top: 15px;}
+			}
+			.data-blue{
+				[class^='point-']{
+					background-color: var(--blue);
+				}
+				.point-1{left: 9px; top: 52px;}
+				.point-2{left: 47px; top: 42px;}
+				.point-3{left: 87px; top: 57px;}
+				.point-4{left: 127px; top: 49px;}
+				.point-5{left: 167px; top: 55px;}
+				.point-6{left: 207px; top: 67px;}
+				.point-7{left: 247px; top: 57px;}
+			}
+		}
+	}
+	
+	.dates {
+		position: relative;
+		width: 260px;
+		height: calc((200px - 50px)/4);
+		padding-top: 5px;
+		font-size: var(--fontcontent);
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+		color: #758694;
+	}
+}
+
+/*@keyframes appear-stroke-red {
+	0%{d: path('M12 40')}
+	30% {d:path('M12 40 L50 9 L90 18')}
+	70%{d: path('M12 40 L50 9 L90 18 L130 9 L170 36')}
+	100%{d: path('M12 40 L50 9 L90 18 L130 9 L170 36 L210 40 L250 18')}
+}
+@keyframes appear-stroke-blue{
+	0% {d: path('M12 55')}
+	30%{d: path('M12 55 L50 45 L90 60')}
+	70%{d: path('M12 55 L50 45 L90 60 L130 52 L170 58')}
+	100% {d: path('M12 55 L50 45 L90 60 L130 52 L170 58 L210 70 L250 60')}
+}*/
+
+@keyframes appear-stroke{
+	0%{stroke-dashoffset: 300;}
+	100%{stroke-dashoffset: 0;}
+}
+
