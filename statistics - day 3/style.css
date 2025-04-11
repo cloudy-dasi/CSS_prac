@@ -153,7 +153,6 @@
 			*/
 			
 			.data-red{
-				visibility: visible;
 				stroke: var(--red);
 			}
 			.data-blue{
