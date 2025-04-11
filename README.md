@@ -86,8 +86,8 @@
 - <p><code style="color: pink; font-size: 12px">stroke-dasharray</code>: shows line/stroke under an array of dashes</p>
 - <p><code style="color: pink; font-size: 12px">stroke-dasharray: 300</code>: dense collection of dashes helps to form into a connected line</p>
 - <p><code style="color: pink; font-size: 12px">stroke-dashoffset</code>: define starting point of the array of dashes counted from right. <br><br> <i>For example</i>: <code style="font-size: 12px">stroke-dashoffset: 300</code> means the starting point of the array of dashes apart from the right 300px and from that point to the left the array of dashes will show up</p>
-</details style="cursor: pointer">
-<details><summary><code>class = "tooltip"</code></summary>
+</details>
+<details style="cursor: pointer"><summary><code>class = "tooltip"</code></summary>
 
 ```html
 <div class='point-1'><div class= 'tooltip'>26</div></div>
@@ -102,4 +102,75 @@
 }
 ```
 - <p><code style="color: pink; font-size: 12px">tooltip</code> can be regarded as a child element which is used after hovering its parent element</p>
+</details>
+
+### <a name="social-profile">👩 Social Profile</a>
+<details style="cursor: pointer"> <summary><code>display: grid</code></summary>
+
+```css
+{   display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+	gap: 1px;
+}
+```
+- <p>I used <code style="font-size: 12px; color: pink">grid</code> to organize each block of content cuz grid helps organize contents in the same frame well.</p>
+</details>
+<details style="cursor: pointer"><summary><code>transition instead of animation</code></summary>
+
+```css
+/*shouldnt*/
+@keyframes round {
+	100% {transform: rotate(360deg)}
+}
+```
+- <p>There was a problem when I made the two circles of image profile move. At first I used animation (<code style="font-size: 12px; color: pink">keyframes</code>) to make it move when hovering, then added <code style="font-size: 12px; color: pink">animation-direction: reverse</code> into <code style="font-size: 12px; color: pink">animation</code> CSS property of one circle. However circles couldn't get back to their initial state when unhovering</p>
+- <p><code style="font-size: 12px; color: pink">transition</code> means switch to another mode => it is suitable when triggered after an event and turned off when there is no event happens => helps element get back to its initial state when unhovering</p>
+</details>
+
+### <a name="notification">🚨 Notification</a>
+<details style="cursor: pointer"><summary><code>a better way to make menu-icon: using svg</code></summary><br>
+
+<i>This is a updated way compared to the one used in css file<i>
+
+```css
+/*css file*/
+.menu-icon{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #5B99C2;
+}
+svg{
+  position: relative;
+  top: 5px;
+}
+svg path{
+  stroke: rgba(255, 255, 255, 0.6);
+
+}
+svg circle{
+  fill: rgba(255, 255, 255, 0.6);
+
+}
+.menu-icon:hover{
+  cursor: pointer;
+  svg path{
+    stroke: white;
+  }
+  svg circle{
+    fill: white;
+  }
+}
+```
+
+```html
+<!--HTML file-->
+<div class="menu-icon">
+  <svg viewBox="0 0 35 35">
+    <path d="M4 5.5 L20 5.5" style="fill: none; stroke-width: 5px; stroke-linecap: round"></path>
+    <circle cx="28" cy="5" r="4"></circle>
+    <path d="M4 18 L30 18" style="fill: none; stroke-width: 5px; stroke-linecap: round"></path>
+  </svg>
+</div>
+```
 </details>
