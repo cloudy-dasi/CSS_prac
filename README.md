@@ -113,7 +113,7 @@
 	gap: 1px;
 }
 ```
-- <p>I used <code style="font-size: 12px; color: pink">grid</code> to organize each block of content cuz grid helps organize contents in the same frame well.</p>
+- <p>I used <code style="font-size: 12px; color: pink">grid</code> to organize content blocks since it helps keep everything aligned and proportionate within the same layout.</p>
 </details>
 <details style="cursor: pointer"><summary><code>transition instead of animation</code></summary>
 
@@ -183,7 +183,7 @@ svg circle{
 </details>
 
 ### <a name="water-motion">🌊 Water Motion</a>
-*Note: Make the "sparkle-" similar to making "blubb-"
+*Note: Making the "sparkle-" similar to making the "blubb-"
 <details style="cursor: pointer">
 <summary><code>filter property create blend effect</code></summary>
 
@@ -223,7 +223,7 @@ for(let i = 1; i<=8; i++){
 	height: 50px;
 	top: calc(50% - 25px);
 	left: calc(50% - 25px);
-    transform: rotate(var(--randomRotate)); /*define positions of 8 blubbs with rotate(degree)*/
+  transform: rotate(var(--randomRotate)); /*define positions of 8 blubbs with rotate(degree)*/
 }
 ```
 
@@ -240,7 +240,7 @@ blubb- will move followed by a curve - which means it has to use <code style="co
 
 ```css
 /*CSS file*/
-[class="blubb-"]:after{
+[class^="blubb-"]:after{
     position: absolute;
     content: '';
     width: 50px;
@@ -267,7 +267,7 @@ blubb.style.setProperty('--blubbDelay', blubbDelay);
 - reason use <code style="color: pink; font-size: 12px">:after</code> pseudo class to add animation prop instead of adding into <code style="color: pink; font-size: 12px">[class="blubb-"]</code>is to prevent the contradiction with <code style="color: pink; font-size: 12px">animation keyframes - transform: rotate(deg)</code>
 
 ```css
-/*if write like this - blubb will not positioned as a flower*/
+/*if write like this - blubb will not be positioned as a flower*/
 [class^='blubb-']{
 	position: absolute;
 	width: 50px;
@@ -291,3 +291,150 @@ blubb.style.setProperty('--blubbDelay', blubbDelay);
 
 
 ### <a name="weather">☔ Weather</a>
+<details style="cursor: pointer">
+<summary><code>convert to Cartesian (rectangular) coordinates</code></summary><br>
+
+```js
+/*Make poles of moon surface*/
+/*JS file*/
+
+const surface = document.querySelector('.surface');
+for(let i=1; i<=8; i++){
+	const poleCenter = document.createElement('div');
+	poleCenter.classList.add(`center-${i}`);
+	
+  //poles: 3px <= random sizes <= 10px
+	const poleCenterWidth = `${i + 2}px`;
+	const poleCenterHeight = `${i + 2}px`;
+	
+	//random position
+	const radius = Math.random() * (33 - (i+2)); //on xaxis, the r < 35px - which means all poles will be drawn inside the surface
+	const angle = Math.random() * 2 * Math.PI; /*position around a circle == vary from 0deg to 360deg*/
+
+	//convert into retangular coordinates
+	const x = radius * Math.cos(angle) + i*2;
+	const y = radius * Math.sin(angle) + i*2;
+	
+	poleCenter.style.setProperty('--poleCenterWidth',poleCenterWidth);
+	poleCenter.style.setProperty('--poleCenterHeight',poleCenterHeight);
+	poleCenter.style.top = `${y + 35 - (i + 2) / 2}px`; 
+	poleCenter.style.left = `${x + 35 - (i + 2) / 2}px`;
+	
+	surface.appendChild(poleCenter);
+}
+```
+- <p>apply <a href="https://tutorial.math.lamar.edu/Classes/CalcII/PolarCoordinates.aspx"><b>polar coordinates</b></a> to understand the position of a point which is made of by <code style="color: pink; font-size: 12px">(r, angle)</code> then convert <code style="color: pink; font-size: 12px">(r, angle)</code> into rectangular coordinates <code style="color: pink; font-size: 12px">(x,y)</code> by using formulars of: <code style="font-size: 12px; color: pink">sin(angle) = x/y, cos(angle)=y/x</code> and formular of: <code style="color: pink; font-size: 12px">x**2 + y**2 = r**2</code>. r can be regared as radius (distance from the origin which has the rectangular coordinates (0,0)) of a circle where a random point (x,y) can position around</p>
+- <p>For example <code style="font-size: 12px">B = polar coordinates(-2, -150)</code> means this position (B) made of (r,angle) is on a circle (origin O - (0,0)) with radius (distance) = abs(-2), this cicle is drawn from a point (A) on x-axis which is equal to -2, OA = radius. the angle -150 is negative, it means the direction to define this B position will be clockwise (the positive direction is anticlockwise). <b>From the -2 on xaxis, define a degree = 150 followed by clockwise direction</b>. After define the distance (r) + angle + direction, we will be able to draw a line which presents the radius and the angle (-150). We can see that (-2, -150) === (2, 30) Reference to read more about polar cooridinates is <a href="https://www.storyofmathematics.com/polar-coordinates/#:~:text=The%20intersection%20represents%20the%20polar%20coordinate%2C">here</a>.</p>
+
+
+```css
+/*apply Polar and Cartesian coordinates logic to make stars*/
+.stars{
+		position: absolute;
+		height: 100%;
+		z-index: 0;
+		[class^='star-']{
+			position: absolute;
+			height: 1px;
+			width: 1px;
+			border-radius: 100%;
+			filter: drop-shadow(1px 1px 2px white); /*glow effect*/
+			background: white;
+			transform: translate3d(var(--axisX),0,0);
+			transform-origin: var(--left) var(--top);
+			animation-name: rotateStar;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+	}
+```
+</details>
+
+<details style="cursor: pointer">
+<summary><code>making rain drops</code></summary><br>
+
+<p>There are 3 types of rain that I made: first one is "heavy-rain", next one is "light-rain" and the last one is "small-rain". Each one has <code style="color: pink; font-size: 12px">:after pseudo class</code> to make a small triangle from top to make it look like a water drop</p>
+
+```css
+[class^="heavy-rain"]{
+  &:after{
+    content: '';
+		clip-path: polygon(70% 0%, 0% 100%, 100% 100%);
+  }
+}
+[class^='light-rain-']{
+  &:after{
+    content: '';
+		clip-path: polygon(70% 0%, 0% 100%, 100% 100%)
+  }
+}
+[class^='small-rain-']{
+  &:after{
+    content: '';
+		clip-path: polygon(70% 0%, 0% 100%, 100% 100%)
+  }
+}
+```
+
+```css
+/*Animate the rain*/
+
+/*1. I have to define the initial position of the rain - it should hide away from view*/
+[class^='heavy-rain-']{top: -350px}
+[class^='light-rain-']{top: -400px}
+[class^='small-rain-']{top: -400px}
+
+/*2. make it drop by using translate(x,y)*/
+@keyframes drop {
+	100% {
+		transform: translate(-50px, 350px); /*diagnol direction*/
+  }
+}
+@keyframes light-drop {
+	100% {
+		transform: translate(-50px, 400px); /*diagnol direction*/
+  }
+}
+@keyframes small-drop {
+	100% {
+		transform: translate(-30px, 430px); /*diagnol direction*/
+  }
+}
+
+/*3. smash into the ground*/
+/*use opacity and increase the width/height*/
+@keyframes drop {
+	80% {width: 10px; opacity: 1}
+	100% {
+		opacity: 0.5;
+		width: 15px;
+	}
+}
+@keyframes drop-after{
+	80% {width: 10px; height: 15px; opacity: 1; top: -100%;}
+	100% {width: 15px; height: 5px; opacity: 0.5; top: -40%; transform: rotate(4deg)}
+}
+@keyframes light-drop {
+	80% {width: 8px; opacity: .7}
+	100% {
+		opacity: 0.2;
+		width: 13px;
+	}
+}
+@keyframes light-drop-after{
+	80% {width: 8px; height: 13px; opacity: .7; top: -100%;}
+	100% {width: 13px; height: 3px; opacity: 0.2; top: -50%;}
+}
+@keyframes small-drop {
+	80% {width: 5px; opacity: .5}
+	100% {
+		opacity: 0.2;
+		width: 8px;
+	}
+}
+@keyframes small-drop-after{
+	80% {width: 5px; height: 10px; opacity: .7; top: -100%;}
+	100% {width: 8px; height: 1px; opacity: 0.2; top: -50%;}
+}
+```
+</details>
