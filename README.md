@@ -175,11 +175,10 @@ svg circle{
 ```
 </details>
 
-<details style="cursor: pointer"><summary><code>toggle('active')</code></summary>
+<details style="cursor: pointer"><summary><code>toggle('active')</code></summary><br>
 
-```js
-//js syntax: element.classList.toggle('active') == .classListName_Of_Element:active{}
-```
+.classList.toggle("active")	JS method means add/remove a class. In this case, it means add "active" className to an element
+
 </details>
 
 ### <a name="water-motion">🌊 Water Motion</a>
