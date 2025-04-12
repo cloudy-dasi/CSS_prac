@@ -177,7 +177,14 @@ svg circle{
 
 <details style="cursor: pointer"><summary><code>toggle('active')</code></summary><br>
 
-.classList.toggle("active")	JS method means add/remove a class. In this case, it means add "active" className to an element
+<p>.<code style="font-size: 12px">classList.toggle("active")</code>	JS method means add/remove a class. It is like an on/off button - button (toggle) will add "active" to the element if it doesn't have the "active" className yet and if it does, toggle button will remove "active" className from it.</p>
+
+```js
+/*when an event happens (click) on search element, it will activate the toggle(add/remove "active" className from that element) method*/
+document.getElementById('search').onclick = () => {
+	document.querySelector('#search-form').classList.toggle('active')
+}
+```
 
 </details>
 
