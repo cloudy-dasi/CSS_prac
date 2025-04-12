@@ -19,7 +19,7 @@
 .scenerio{
 	position: relative;
 	height: 80%;
-	overflow: hidden;
+	overflow: hidden; /*clip*/
 	background: #1A2238;
 	z-index: 5;
 	.moon{
@@ -135,20 +135,19 @@
 	[class^='heavy-rain-']{
 		position: absolute;
 		border-radius: 100%;
-		top: -350px;
+		top: -350px; /*hide the rain*/
 		left: var(--heavyLeft);
 		width: 10px;
 		height: 10px;
 		background: #789DBC;
 		border-radius: 100%;
-		filter: saturate(2);
+		filter: saturate(2); /*alter the chroma*/
 		animation-name: drop;
 		animation-duration: var(--heavyDur);
 		animation-iteration-count: infinite;
 		animation-timing-function: ease-out;
 		animation-delay: var(--heavyDelay);
-		animation-fill-mode: both;
-		&:after{
+		&:after{ /*create small triangle on the top to make it look like a water drop*/
 			position: absolute;
 			width: 10px;
 			height: 15px;
@@ -162,25 +161,23 @@
 			animation-timing-function: ease-out;
 			animation-iteration-count: infinite;
 			animation-delay: var(--heavyDelay);
-			animation-fill-mode: both;
 		}
 	}
 	[class^='light-rain-']{
 		position: absolute;
 		border-radius: 100%;
-		top: -400px;
+		top: -400px; /*hide the rain*/
 		left: var(--lightLeft);
 		width: 8px;
 		height: 8px;
 		background: #81BFDA;
 		border-radius: 100%;
-		filter: saturate(1);
+		filter: saturate(1); /*alter the chroma*/
 		animation-name: light-drop;
 		animation-duration: .5s;
 		animation-iteration-count: infinite;
 		animation-timing-function: ease-out;
 		animation-delay: var(--lightDelay);
-		animation-fill-mode: both;
 		&:after{
 			position: absolute;
 			width: 8px;
@@ -195,13 +192,12 @@
 			animation-timing-function: linear;
 			animation-iteration-count: infinite;
 			animation-delay: var(--lightDelay);
-			animation-fill-mode: both;
 		}
 	}
 	[class^='small-rain-']{
 		position: absolute;
 		border-radius: 100%;
-		top: -400px;
+		top: -400px; /*hide the rain*/
 		left: var(--smallLeft);
 		width: 5px;
 		height: 5px;
@@ -213,7 +209,6 @@
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 		animation-delay: var(--smallDelay);
-		animation-fill-mode: both;
 		z-index: 3;
 		&:after{
 			position: absolute;
@@ -229,7 +224,6 @@
 			animation-timing-function: linear;
 			animation-iteration-count: infinite;
 			animation-delay: var(--smallDelay);
-			animation-fill-mode: both;
 		}
 	}
 }
