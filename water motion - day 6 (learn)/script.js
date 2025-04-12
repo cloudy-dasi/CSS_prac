@@ -4,9 +4,10 @@ for(let i = 1; i<=8; i++){
 	const blubb = document.createElement('div');
     blubb.classList.add(`blubb-${i}`);
     
-    // at first place: blubb.style.transform = `rotate(${Math.random()*300}deg)` within transform-origin and animation rotate => contradict to the transform rotate in the animation
+    // at first place: blubb.style.transform = `rotate(${Math.random()*300}deg)` within transform-origin and animation rotate
+    //  => contradict to the transform rotate in the animation
     const randomRotate = `${Math.random() * 300}deg`;
-    const originX = `${40 - i * 3}px`; //rotate a circle smaller than the .center
+    const originX = `${40 - i * 3}px`; //define the origin when transform (rotate) < .center radius (<45px)
     const originY = `${40 - i * 3}px`;
     const blubbBlur = `${2.5 + i / 5}s`;
     const blubbDelay = `${i / 5}s`;
@@ -29,7 +30,7 @@ for(let i=1; i<=10; i++){
     const widthSparkle = `${7 + i}px`;
     const heightSparkle = `${7 + i}px`;
     const randomRotate = `${Math.random() * 300}deg`;
-    const originX = `${60 - i * 2}px`; //rotate a circle larger than the .center
+    const originX = `${60 - i * 2}px`; //define the origin > .center radius (>45px)
     const originY = `${60 - i * 2}px`;
     const sparkleDur = `${3.5 + i / 5}s`; //3.5s + delay time
     const sparkleDelay = `${i / 5}s`;
