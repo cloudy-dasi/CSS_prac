@@ -27,7 +27,7 @@
 <!--details tag: collapsed section: dropdown-->
 <!--summary tag: used for name of dropdown-->
 
-### <a name="pyramid">🌄 Pyramid</a>
+### <a name="pyramid" href="https://ruddy-trail-mandarin.glitch.me/frame.html">🌄 Pyramid</a>
 <details style="cursor: pointer">
 <summary><code>transform-origin</code></summary>
 
