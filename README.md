@@ -48,7 +48,7 @@
 - <p>Decide the <code style="color: pink; font-size: 12px">rotate(degree)</code> means deciding the position of the object when animating that object. The object will move followed by a curve due to rotate effect<p>
 </details>
 
-### <a name="loading">⏳ Loading</a>
+### <a name="loading" href="https://mica-best-sumac.glitch.me/index.html">⏳ Loading</a>
 <details style="cursor: pointer">
 <summary><code>scale()</code></summary>
 
@@ -63,7 +63,7 @@
 - <p>use <code style="color: pink; font-size: 12px">scale(one number)</code> helps to avoid the distortion of the object's size when changing its size, it means multiply the object by <code style="color: pink; font-size: 12px">? number</code><p>
 </details>
 
-### <a name="statistics">📈 Statistics</a>
+### <a name="statistics" href="https://ambitious-mango-coat.glitch.me/index.html">📈 Statistics</a>
 <details style="cursor: pointer"><summary>
 <code>stroke-dasharray</code>
 <code>stroke-dashoffset</code>
