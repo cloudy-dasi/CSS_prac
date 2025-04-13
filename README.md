@@ -27,6 +27,12 @@
 <!--details tag: collapsed section: dropdown-->
 <!--summary tag: used for name of dropdown-->
 
+----
+
+<i>You can visit site by <b>clicking the title</b> and <b>change the REQUEST</b> through the "http:" to visit the css file. For example: https://ruddy-trail-mandarin.glitch.me/frame.html can be changed into https://ruddy-trail-mandarin.glitch.me/sunmove.css</i>
+
+----
+
 ### <a name="pyramid" href="https://ruddy-trail-mandarin.glitch.me/frame.html">🌄 Pyramid</a>
 <details style="cursor: pointer">
 <summary><code>transform-origin</code></summary>
