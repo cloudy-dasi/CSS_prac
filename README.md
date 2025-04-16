@@ -194,7 +194,7 @@ document.getElementById('search').onclick = () => {
 
 </details>
 
-### <a name="water-motion">🌊 Water Motion</a>
+### <a name="water-motion" href="https://sudsy-tangible-yoke.glitch.me/index.html">🌊 Water Motion</a>
 *Note: Making the "sparkle-" similar to making the "blubb-"
 <details style="cursor: pointer">
 <summary><code>filter property create blend effect</code></summary>
