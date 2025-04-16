@@ -133,7 +133,7 @@
 - <p><code style="font-size: 12px; color: pink">transition</code> means switch to another mode => it is suitable when triggered after an event and turned off when there is no event happens => helps element get back to its initial state when unhovering</p>
 </details>
 
-### <a name="notification">🚨 Notification</a>
+### <a name="notification" href="https://wild-beneficial-station.glitch.me/index.html">🚨 Notification</a>
 <details style="cursor: pointer"><summary><code>a better way to make menu-icon: using svg</code></summary><br>
 
 <i>This is an updated way compared to the one used in css file. <i>
