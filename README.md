@@ -302,7 +302,7 @@ blubb.style.setProperty('--blubbDelay', blubbDelay);
 </details>
 
 
-### <a name="weather">☔ Weather</a>
+### <a name="weather" href="https://scented-mahogany-expert.glitch.me/index.html">☔ Weather</a>
 <details style="cursor: pointer">
 <summary><code>convert to Cartesian (rectangular) coordinates</code></summary><br>
 
