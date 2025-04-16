@@ -29,7 +29,7 @@
 
 ----
 
-<i>You can visit site by <b>clicking the title</b> and <b>change the REQUEST</b> through the "http:" to visit the css file. For example: https://ruddy-trail-mandarin.glitch.me/frame.html can be changed into https://ruddy-trail-mandarin.glitch.me/sunmove.css</i>
+<i>You can visit site by <b>clicking the title</b> and <b>change the REQUEST</b> through the "http:" to visit the css file and js file. For example: https://ruddy-trail-mandarin.glitch.me/frame.html can be changed into https://ruddy-trail-mandarin.glitch.me/sunmove.css</i>
 
 ----
 
