@@ -110,7 +110,7 @@
 - <p><code style="color: pink; font-size: 12px">tooltip</code> can be regarded as a child element which is used after hovering its parent element</p>
 </details>
 
-### <a name="social-profile">👩 Social Profile</a>
+### <a name="social-profile" href="https://dawn-universal-fang.glitch.me/index.html">👩 Social Profile</a>
 <details style="cursor: pointer"> <summary><code>display: grid</code></summary>
 
 ```css
